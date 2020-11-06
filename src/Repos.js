@@ -1,12 +1,10 @@
-/* eslint-disable react/display-name */
-/* eslint-disable react/jsx-key */
 import React, { useEffect } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 
 import { repos as reposAtom, view as viewAtom } from "./atoms";
 import Repo from "./Repo";
 
-export default () => {
+const Repos = () =>  {
   const [repos, setRepos] = useRecoilState(reposAtom);
   const view = useRecoilValue(viewAtom);
 
@@ -28,10 +26,12 @@ export default () => {
   return repos[view] ? (
     <ul>
       {repos[view].map((repo) => (
-        <Repo repo={repo} />
+        <Repo key={repo} />
       ))}
     </ul>
   ) : (
     <span>No repos found</span>
   );
 };
+
+export default Repos

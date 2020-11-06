@@ -1,9 +1,8 @@
-/* eslint-disable react/display-name */
 import React from "react";
 import { useRecoilState } from "recoil";
 import { view as viewAtom } from "./atoms";
 
-export default () => {
+const Menu = () => {
   const viewOptions = ["daily", "weekly", "monthly"];
   const [view, setView] = useRecoilState(viewAtom);
   
@@ -22,3 +21,5 @@ export default () => {
     </nav>
   );
 };
+
+export default Menu;
